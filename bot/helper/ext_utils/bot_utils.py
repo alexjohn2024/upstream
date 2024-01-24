@@ -178,10 +178,10 @@ def get_readable_message():
             msg += f"\n🔰Done:{download.processed_bytes()} of {download.size()}"
             msg += f"\n🔰Speed: {download.speed()}"
             msg += f'\n🔰ETA: {download.eta()}'
-    if hasattr(download, 'seeders_num'):
-           try:
+if hasattr(download, 'seeders_num'):
+                try:
                     msg += f"\n🔰Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
-           except:
+                except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
             msg += f"\n🔰Size: {download.size()}"
