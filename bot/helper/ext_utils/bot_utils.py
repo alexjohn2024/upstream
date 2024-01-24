@@ -178,8 +178,7 @@ def get_readable_message():
             msg += f"\n🔰Done:{download.processed_bytes()} of {download.size()}"
             msg += f"\n🔰Speed: {download.speed()}"
             msg += f'\n🔰ETA: {download.eta()}'
-            msg += f"\n🔰Mode: ('STA_MODE', Mode=download.upload_details['mode'])"
-            if hasattr(download, 'seeders_num'):
+       if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\n🔰Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
                 except:
