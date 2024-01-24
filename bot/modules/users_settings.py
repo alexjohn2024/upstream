@@ -165,7 +165,7 @@ async def update_user_settings(query, key=None, edit_type=None, edit_mode=None, 
     user_id = query.from_user.id
     thumbnail = f"Thumbnails/{user_id}.jpg"
     if not ospath.exists(thumbnail):
-        thumbnail = 'https://graph.org/file/8bd8f5463486d431bb39d.png'
+        thumbnail = 'https://graph.org/file/ede63b518842c2d155eac.jpg'
     await editMessage(query.message, msg, button, thumbnail)
 
 
@@ -175,7 +175,7 @@ async def user_settings(client, message):
     user_id = message.from_user.id
     thumbnail = f"Thumbnails/{user_id}.jpg"
     if not ospath.exists(thumbnail):
-        thumbnail = 'https://graph.org/file/8bd8f5463486d431bb39d.png'
+        thumbnail = 'https://graph.org/file/ede63b518842c2d155eac.jpg'
     x = await sendMessage(message, msg, button, thumbnail)
     await five_minute_del(message)
     await deleteMessage(x)
