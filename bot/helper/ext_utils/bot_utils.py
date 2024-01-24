@@ -181,7 +181,7 @@ def get_readable_message():
     if hasattr(download, 'seeders_num'):
            try:
                     msg += f"\n🔰Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
-           except Exception:
+           except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
             msg += f"\n🔰Size: {download.size()}"
