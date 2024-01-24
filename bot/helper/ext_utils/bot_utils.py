@@ -180,7 +180,7 @@ def get_readable_message():
             msg += f'\n🔰ETA: {download.eta()}'          
             if hasattr(download, 'seeders_num'):
                 try:
-                    msg += f"\nSeeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
+                    msg += f"\n🔰Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
