@@ -41,17 +41,17 @@ PAGE_NO = 1
 STATUS_LIMIT = 4
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Uploading"
-    STATUS_DOWNLOADING = "Downloading"
-    STATUS_CLONING = "Cloning"
+    STATUS_UPLOADING = "⤴️ Uploading"
+    STATUS_DOWNLOADING = "⤵️ Downloading"
+    STATUS_CLONING = "🧬 Cloning"
     STATUS_QUEUEDL = "DL queued"
     STATUS_QUEUEUP = "UL queued"
-    STATUS_PAUSED = "Paused"
-    STATUS_ARCHIVING = "Archiving"
-    STATUS_EXTRACTING = "Extracting"
-    STATUS_SPLITTING = "Splitting"
+    STATUS_PAUSED = "⏸️ Paused"
+    STATUS_ARCHIVING = "🔐 Archiving"
+    STATUS_EXTRACTING = "🔓 Extracting"
+    STATUS_SPLITTING = "⚔️ Splitting"
     STATUS_CHECKING = "CheckUp"
-    STATUS_SEEDING = "Seeding"
+    STATUS_SEEDING = "☁️ Seeding"
 
 
 class setInterval:
@@ -147,8 +147,8 @@ def progress_bar(pct):
         pct = float(pct.strip('%'))
     p = min(max(pct, 0), 100)
     cFull = int((p + 5)// 10)
-    p_str = '●' * cFull
-    p_str += '○' * (10 - cFull)
+    p_str = '🌺' * cFull
+    p_str += '❀' * (10 - cFull)
     return p_str
 
 
@@ -174,8 +174,8 @@ def get_readable_message():
         msg += f"by {source(download)}\n\n"
         msg += f"<b>{download.status()}...</b>"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
-            msg += f"\n<code>{progress_bar(download.progress())}</code> {download.progress()}"
-            msg += f"\n{download.processed_bytes()} of {download.size()}"
+            msg += f"\n<code>{progress_bar(download.progress())}</code> {download.progress()}\n"
+            msg += f"\n{download.processed_bytes()} of {download.size()}\n"
             msg += f"\n🔰Speed: {download.speed()}"
             msg += f'\n🔰Estimated: {download.eta()}'
             if hasattr(download, 'seeders_num'):
@@ -191,7 +191,7 @@ def get_readable_message():
             msg += f"\n🔰Time: {download.seeding_time()}"
         else:
             msg += f"\n🔰Size: {download.size()}"
-        msg += f"\n🔰Elapsed: {get_readable_time(time() - download.message.date.timestamp())}"
+        msg += f"\n🔰Elapsed: {get_readable_time(time() - download.message.date.timestamp())}\n"
         msg += f"\n✋🏻/stop_{download.gid()[:8]}\n\n"
     if len(msg) == 0:
         return None, None
