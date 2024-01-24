@@ -178,6 +178,7 @@ def get_readable_message():
             msg += f"\n{download.processed_bytes()} of {download.size()}\n"
             msg += f"\n🔰Speed: {download.speed()}"
             msg += f'\n🔰ETA: {download.eta()}'
+            msg += f"\n🔰ENG: {download.engine}"
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\nSeeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
