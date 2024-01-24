@@ -49,7 +49,7 @@ class MirrorStatus:
     STATUS_PAUSED = "⏸️ Paused"
     STATUS_ARCHIVING = "🔐Archiving"
     STATUS_EXTRACTING = "🔓Extracting"
-    STATUS_SPLITTING = "✂ Splitting"
+    STATUS_SPLITTING = "⚔️ Splitting"
     STATUS_CHECKING = "CheckUp"
     STATUS_SEEDING = "☁️ Seeding"
 
