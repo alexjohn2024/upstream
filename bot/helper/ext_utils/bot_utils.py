@@ -147,8 +147,8 @@ def progress_bar(pct):
         pct = float(pct.strip('%'))
     p = min(max(pct, 0), 100)
     cFull = int((p + 5)// 10)
-    p_str = '🌺' * cFull
-    p_str += '🌼' * (10 - cFull)
+    p_str = '💥' * cFull
+    p_str += '⟡' * (10 - cFull)
     return p_str
 
 
@@ -174,7 +174,7 @@ def get_readable_message():
         msg += f"by {source(download)}\n\n"
         msg += f"<b>{download.status()}...</b>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
-            msg += f"\n⊱<code>{progress_bar(download.progress())}</code>⊰ {download.progress()}\n"
+            msg += f"\n▄︻デ══━一<code>{progress_bar(download.progress())}</code>💨 {download.progress()}\n"
             msg += f"\n{download.processed_bytes()} of {download.size()}\n"
             msg += f"\n🔰Speed: {download.speed()}"
             msg += f'\n🔰Estimated: {download.eta()}'
