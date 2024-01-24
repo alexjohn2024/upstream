@@ -191,7 +191,7 @@ def get_readable_message():
             msg += f"\n🔰Time: {download.seeding_time()}"
         else:
             msg += f"\n🔰Size: {download.size()}"
-        msg += f"\n🔰Past: {get_readable_time(time() - download.message.date.timestamp())}"
+        msg += f"\n🔰Past: {get_readable_time(time() - download.message.date.timestamp())}\n"
         msg += f"\n✋🏻/stop_{download.gid()[:8]}\n\n"
     if len(msg) == 0:
         return None, None
