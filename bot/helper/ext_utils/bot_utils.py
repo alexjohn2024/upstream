@@ -147,8 +147,8 @@ def progress_bar(pct):
         pct = float(pct.strip('%'))
     p = min(max(pct, 0), 100)
     cFull = int((p + 5)// 10)
-    p_str = '💥' * cFull
-    p_str += '⟡' * (10 - cFull)
+    p_str = '🌺' * cFull
+    p_str += '🌼' * (10 - cFull)
     return p_str
 
 
@@ -157,7 +157,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = '<b>Powered By <a href="t.me/lovelyhacker_143">@Private Space</a></b>\n\n'
+    msg = '<b>✨Powered By <a href="t.me/lovelyhacker_143">@Private Space</a></b>\n\n'
     button = None
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
@@ -170,11 +170,11 @@ def get_readable_message():
         globals()['STATUS_START'] = STATUS_LIMIT * (PAGES - 1)
         globals()['PAGE_NO'] = PAGES
     for download in list(download_dict.values())[STATUS_START:STATUS_LIMIT+STATUS_START]:
-        msg += f"<b>{escape(f'{download.name()}')}</b>\n"
+        msg += f"<b>🌍{escape(f'{download.name()}')}</b>\n"
         msg += f"by {source(download)}\n\n"
         msg += f"<b>{download.status()}...</b>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
-            msg += f"\n▄︻デ══━一<code>{progress_bar(download.progress())}</code>💨 {download.progress()}\n"
+            msg += f"\n<code>{progress_bar(download.progress())}</code> {download.progress()}\n"
             msg += f"\n{download.processed_bytes()} of {download.size()}\n"
             msg += f"\n🔰Speed: {download.speed()}"
             msg += f'\n🔰Estimated: {download.eta()}'
