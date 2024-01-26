@@ -176,7 +176,7 @@ def get_readable_message():
             msg += f"\n🔰Progress: {download.processed_bytes()} of {download.size()}"
             msg += f"\n🔰User: {source(download)}"
             msg += f"\n🔰Speed: {download.speed()}"
-            msg += f'\n🔰Estimated: {download.eta()}'            
+            msg += f'\n🔰Estimated: {download.eta()}'
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\n🔰Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
@@ -188,11 +188,9 @@ def get_readable_message():
             msg += f"\n🔰Uploaded: {download.uploaded_bytes()}"
             msg += f"\n🔰Ratio: {download.ratio()}"
             msg += f"\n🔰Time: {download.seeding_time()}"
-            
         else:
             msg += f"\n🔰Size: {download.size()}"
-            msg += f"\n🔰Elapsed: {get_readable_time(time() - download.message.date.timestamp())}\n"
-        
+        msg += f"\n🔰Elapsed: {get_readable_time(time() - download.message.date.timestamp())}\n"
         msg += f"\n✋🏻/stop_{download.gid()[:8]}\n\n"
     if len(msg) == 0:
         return None, None
@@ -213,10 +211,10 @@ def get_readable_message():
         buttons.ibutton("Next", "status nex")
         button = buttons.build_menu(3)
     msg += f"<b>🔥 Tasks</b>: {tasks}{bmax_task}"
-    msg += f"\n<b>❅ 🤖 uptime</b>: {currentTime}"
-    msg += f"\n<b>❅ ⛃ space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
-    msg += f"\n<b>❅ ⤴️ speed</b>: {get_readable_file_size(up_speed)}/s"
-    msg += f"\n<b>❅ ⤵️ speed</b>: {get_readable_file_size(dl_speed)}/s"
+    msg += f"\n<b>🤖 uptime</b>: {currentTime}"
+    msg += f"\n<b>⛃ space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
+    msg += f"\n<b>⤴️ speed</b>: {get_readable_file_size(up_speed)}/s"
+    msg += f"\n<b>⤵️ speed</b>: {get_readable_file_size(dl_speed)}/s"
     return msg, button
 
 
