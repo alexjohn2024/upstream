@@ -51,13 +51,13 @@ async def stats(_, message):
         'Mega'     : config_dict.get('MEGA_LIMIT',     '∞'),
         'User task': config_dict.get('USER_MAX_TASKS', '∞')}
     system_info = f'<b>{quote}</b>\n\n'\
-        f'<code>❅ Bot uptime :</code> {currentTime}\n'\
-        f'<code>❅ Sys uptime :</code> {osUptime}\n'\
-        f'<code>❅ CPU usage  :</code> {cpuUsage}%\n'\
-        f'<code>❅ RAM usage  :</code> {memory.percent}%\n'\
-        f'<code>❅ Disk usage :</code> {disk}%\n'\
-        f'<code>❅ Free space :</code> {get_readable_file_size(free)}\n'\
-        f'<code>❅ Total space:</code> {get_readable_file_size(total)}\n\n'
+        f'<code>⬆️ Bot uptime :</code> {currentTime}\n'\
+        f'<code>⏫ Sys uptime :</code> {osUptime}\n'\
+        f'<code>🗄️ CPU usage  :</code> {cpuUsage}%\n'\
+        f'<code>🎟 RAM usage  :</code> {memory.percent}%\n'\
+        f'<code>🛢 Disk usage :</code> {disk}%\n'\
+        f'<code>🆓 Free space :</code> {get_readable_file_size(free)}\n'\
+        f'<code>⏺️ Total space:</code> {get_readable_file_size(total)}\n\n'
             
     limitations = f'<b>Limitations...</b>\n\n'
     
