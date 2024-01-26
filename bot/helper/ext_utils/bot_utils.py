@@ -178,7 +178,7 @@ def get_readable_message():
             msg += f"\n🔰User: {source(download)}"
             msg += f"\n🔰Speed: {download.speed()}"
             msg += f'\n🔰Estimated: {download.eta()}'
-            msg += f'\n🔰Engine: {Engine=download.eng()}'
+            msg += f'\n🔰Engine: {Engine.download.eng()}'
             msg += f'\n🔰Mode: {download.upload_details()}'
             if hasattr(download, 'seeders_num'):
                 try:
