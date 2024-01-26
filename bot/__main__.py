@@ -50,7 +50,7 @@ async def stats(_, message):
         'Clone'    : config_dict.get('CLONE_LIMIT',    '∞'),
         'Mega'     : config_dict.get('MEGA_LIMIT',     '∞'),
         'User task': config_dict.get('USER_MAX_TASKS', '∞')}
-    system_info = f'<b>{quote}</b>\n\n'\
+    system_info = f'<b>🇮🇳 M͢a͢d͢e͢ W͢i͢t͢h͢ L͢o͢v͢e͢ B͢y͢ N͢a͢g͢e͢s͢h͢ R͢a͢v͢i͢l͢l͢a͢</b>\n\n'\
         f'<code>⬆️ Bot uptime :</code> {currentTime}\n'\
         f'<code>⏫ Sys uptime :</code> {osUptime}\n'\
         f'<code>🗄️ CPU usage  :</code> {cpuUsage}%\n'\
