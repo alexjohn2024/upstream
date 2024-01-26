@@ -142,7 +142,7 @@ async def fetch_user_tds(user_id, force=False):
     return {}
 
 
-def get_progress_bar_string(pct):
+def progress_bar(pct):
     pct = float(str(pct).strip('%'))
     p = min(max(pct, 0), 100)
     cFull = int(p // 8)
