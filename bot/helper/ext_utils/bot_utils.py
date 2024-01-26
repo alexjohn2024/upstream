@@ -150,7 +150,7 @@ def progress_bar(pct):
     p_str = '■' * cFull
     if cPart >= 0:
         p_str += ['▤', '▥', '▦', '▧', '▨', '▩', '■'][cPart]
-    p_str += '□' * (12 - cFull)
+    p_str += '□' * (10 - cFull)
     return f"[{p_str}]"
 
 
