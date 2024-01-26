@@ -142,14 +142,16 @@ async def fetch_user_tds(user_id, force=False):
     return {}
 
 
-def progress_bar(pct):
-    if isinstance(pct, str):
-        pct = float(pct.strip('%'))
+def get_progress_bar_string(pct):
+    pct = float(str(pct).strip('%'))
     p = min(max(pct, 0), 100)
-    cFull = int((p + 5)// 10)
-    p_str = '🌧️' * cFull
-    p_str += '☁️' * (10 - cFull)
-    return p_str
+    cFull = int(p // 8)
+    cPart = int(p % 8 - 1)
+    p_str = '■' * cFull
+    if cPart >= 0:
+        p_str += ['▤', '▥', '▦', '▧', '▨', '▩', '■'][cPart]
+    p_str += '□' * (12 - cFull)
+    return f"[{p_str}]"
 
 
 def source(self):
@@ -157,7 +159,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = '<b>✨Powered By <a href="t.me/lovelyhacker_143">@Private Space</a></b>\n\n'
+    msg = '<b>Powered By <a href="t.me/lovelyhacker_143">@Private Space</a></b>\n\n'
     button = None
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
