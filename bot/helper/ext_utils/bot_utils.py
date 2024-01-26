@@ -188,9 +188,10 @@ def get_readable_message():
             msg += f"\n🔰Uploaded: {download.uploaded_bytes()}"
             msg += f"\n🔰Ratio: {download.ratio()}"
             msg += f"\n🔰Time: {download.seeding_time()}"
-            msg += f"\n🔰Elapsed: {get_readable_time(time() - download.message.date.timestamp())}"
+            
         else:
-            msg += f"\n🔰Size: {download.size()}\n"
+            msg += f"\n🔰Size: {download.size()}"
+            msg += f"\n🔰Elapsed: {get_readable_time(time() - download.message.date.timestamp())}\n"
         
         msg += f"\n✋🏻/stop_{download.gid()[:8]}\n\n"
     if len(msg) == 0:
@@ -211,11 +212,11 @@ def get_readable_message():
         buttons.ibutton(f"{PAGE_NO}/{PAGES}", "status ref")
         buttons.ibutton("Next", "status nex")
         button = buttons.build_menu(3)
-    msg += f"<b>❅ Tasks</b>: {tasks}{bmax_task}"
-    msg += f"\n<b>❅ Bot uptime</b>: {currentTime}"
-    msg += f"\n<b>❅ Free disk space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
-    msg += f"\n<b>❅ Uploading speed</b>: {get_readable_file_size(up_speed)}/s"
-    msg += f"\n<b>❅ Downloading speed</b>: {get_readable_file_size(dl_speed)}/s"
+    msg += f"<b>🔥 Tasks</b>: {tasks}{bmax_task}"
+    msg += f"\n<b>❅ 🤖 uptime</b>: {currentTime}"
+    msg += f"\n<b>❅ ⛃ space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
+    msg += f"\n<b>❅ ⤴️ speed</b>: {get_readable_file_size(up_speed)}/s"
+    msg += f"\n<b>❅ ⤵️ speed</b>: {get_readable_file_size(dl_speed)}/s"
     return msg, button
 
 
