@@ -1,3 +1,25 @@
+#!/usr/bin/env python3
+from asyncio import (create_subprocess_exec, create_subprocess_shell,
+                     run_coroutine_threadsafe, sleep)
+from asyncio.subprocess import PIPE
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial, wraps
+from html import escape
+from re import match
+from time import time
+from uuid import uuid4
+from psutil import disk_usage
+from pyrogram.types import BotCommand
+from aiohttp import ClientSession
+
+from bot import (bot_loop, bot_name, botStartTime, config_dict, download_dict,
+                 DATABASE_URL, download_dict_lock, extra_buttons, user_data)
+from bot.helper.ext_utils.shortener import short_url
+from bot.helper.ext_utils.telegraph_helper import telegraph
+from bot.helper.ext_utils.db_handler import DbManager
+from bot.helper.telegram_helper.bot_commands import BotCommands
+from bot.helper.telegram_helper.button_build import ButtonMaker
+
 from urllib.parse import urlparse
 from base64 import b64encode
 from datetime import datetime
