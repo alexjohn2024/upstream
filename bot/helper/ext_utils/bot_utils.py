@@ -176,7 +176,8 @@ def get_readable_message():
             msg += f"\n🔰Progress: {download.processed_bytes()} of {download.size()}"
             msg += f"\n🔰User: {source(download)}"
             msg += f"\n🔰Speed: {download.speed()}"
-            msg += f'\n🔰Estimated: {download.eta()}'
+            msg += f"\n🔰Engine: {download.engine}"
+            msg += f'\n🔰Estimated: {download.eta()}'            
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\n🔰Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
@@ -209,14 +210,7 @@ def get_readable_message():
         buttons.ibutton("Prev", "status pre")
         buttons.ibutton(f"{PAGE_NO}/{PAGES}", "status ref")
         buttons.ibutton("Next", "status nex")
-        button = buttons.build_menu(3)
-        /n
-       msg += f"╭──────────.★..─╮
-                ┊ ⋆ ┊ . ┊ ┊
-                ┊ ┊⋆ ┊ .
-                ┊ ┊ ⋆˚ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭
-                ✧. ┊ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭ ⁭
-                ⋆ ★"
+        button = buttons.build_menu(3)        
     msg += f"<b>❆ Tasks</b>: {tasks}{bmax_task}"
     msg += f"\n<b>❆ Bot uptime</b>: {currentTime}"
     msg += f"\n<b>❆ Free disk space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
