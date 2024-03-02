@@ -21,7 +21,7 @@ async def mirror_status(_, message):
         quote = Quote.print().split('―', 1)[0].strip().replace("“", "").replace("”", "")
 
         msg = f'<b>{quote}</b>\n\n'
-        msg += <blockquote>'No downloads are currently in progress.</blockquote>\n'
+        msg += f'<blockquote>'No downloads are currently in progress.</blockquote>\n'
         msg += f"\n<b>❅ Bot uptime</b>: {currentTime}"
         msg += f"\n<b>❅ Free disk space</b>: {free}"
 
