@@ -24,7 +24,7 @@ async def mirror_status(_, message):
         msg += 'No downloads are currently in progress.\n'
         msg += f"\n<b>❅ Bot uptime</b>: {currentTime}"
         msg += f"\n<b>❅ Free disk space</b>: {free}"
-        msg += f"/n <blockquote data-entity-type="MessageEntityBlockquote" class="">Hello</blockquote>
+        "/n<blockquote data-entity-type="MessageEntityBlockquote" class="text-entity-blockquote-wrapper">Hello</blockquote>
 
         reply_message = await sendMessage(message, msg)
         await deleteMessage(message)
