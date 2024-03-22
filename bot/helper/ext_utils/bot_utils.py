@@ -169,7 +169,7 @@ def get_readable_message():
         globals()['STATUS_START'] = STATUS_LIMIT * (PAGES - 1)
         globals()['PAGE_NO'] = PAGES
     for download in list(download_dict.values())[STATUS_START:STATUS_LIMIT+STATUS_START]:
-        msg += f"<b>{escape(f'{download.name()}')}</b>\n\n"
+        msg += f"<b>🍃{escape(f'{download.name()}')}</b>\n\n"
         msg += f"<b>{download.status()}...</b>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
             msg += f"\n<code>{progress_bar(download.progress())}</code>  {download.progress()}\n"
@@ -192,7 +192,7 @@ def get_readable_message():
         else:
             msg += f"\nSize: {download.size()}"
         msg += f"\nElapsed: {get_readable_time(time() - download.message.date.timestamp())}\n"
-        msg += f"\n✋🏻/stop_{download.gid()[:8]}\n--------------------------------\n"
+        msg += f"\n✋🏻/stop_{download.gid()[:8]}\n--------------------------------\n\n"
     if len(msg) == 0:
         return None, None
     dl_speed = 0
@@ -211,11 +211,11 @@ def get_readable_message():
         buttons.ibutton(f"{PAGE_NO}/{PAGES}", "status ref")
         buttons.ibutton("Next", "status nex")
         button = buttons.build_menu(3)        
-    msg += f"<b>❆ Tasks</b>: {tasks}{bmax_task}"
-    msg += f"\n<b>❆ Bot uptime</b>: {currentTime}"
-    msg += f"\n<b>❆ Free disk space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
-    msg += f"\n<b>❆ Uploading speed</b>: {get_readable_file_size(up_speed)}/s"
-    msg += f"\n<b>❆ Downloading speed</b>: {get_readable_file_size(dl_speed)}/s"
+    msg += f"<b>• Tasks</b>: {tasks}{bmax_task}"
+    msg += f"\n<b>• Bot uptime</b>: {currentTime}"
+    msg += f"\n<b>• Free disk space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
+    msg += f"\n<b>• Uploading speed</b>: {get_readable_file_size(up_speed)}/s"
+    msg += f"\n<b>• Downloading speed</b>: {get_readable_file_size(dl_speed)}/s"
     return msg, button
 
 
