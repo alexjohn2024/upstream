@@ -146,8 +146,8 @@ def progress_bar(pct):
         pct = float(pct.strip('%'))
     p = min(max(pct, 0), 100)
     cFull = int((p + 5)// 10)
-    p_str = '⚈' * cFull
-    p_str += '⚆' * (10 - cFull)
+    p_str = '▣' * cFull
+    p_str += '▢' * (10 - cFull)
     return p_str
 
 
@@ -173,26 +173,26 @@ def get_readable_message():
         msg += f"<b>{download.status()}...</b>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
             msg += f"\n<code>{progress_bar(download.progress())}</code>  {download.progress()}\n"
-            msg += f"\n🔰Progress: {download.processed_bytes()} of {download.size()}"
-            msg += f"\n🔰User: {source(download)}"
-            msg += f"\n🔰Speed: {download.speed()}"
-            #!/ msg += f"\n🔰Engine: {download.engine}"
-            msg += f'\n🔰Estimated: {download.eta()}'            
+            msg += f"\nProgress: {download.processed_bytes()} of {download.size()}"
+            msg += f"\nUser: {source(download)}"
+            msg += f"\nSpeed: {download.speed()}"
+            #!/ msg += f"\nEngine: {download.engine}"
+            msg += f'\nEstimated: {download.eta()}'            
             if hasattr(download, 'seeders_num'):
                 try:
-                    msg += f"\n🔰Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
+                    msg += f"\nSeeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
-            msg += f"\n🔰Size: {download.size()}"
-            msg += f"\n🔰Speed: {download.upload_speed()}"
-            msg += f"\n🔰Uploaded: {download.uploaded_bytes()}"
-            msg += f"\n🔰Ratio: {download.ratio()}"
-            msg += f"\n🔰Time: {download.seeding_time()}"
+            msg += f"\nSize: {download.size()}"
+            msg += f"\nSpeed: {download.upload_speed()}"
+            msg += f"\nUploaded: {download.uploaded_bytes()}"
+            msg += f"\nRatio: {download.ratio()}"
+            msg += f"\nTime: {download.seeding_time()}"
         else:
-            msg += f"\n🔰Size: {download.size()}"
-        msg += f"\n🔰Elapsed: {get_readable_time(time() - download.message.date.timestamp())}\n"
-        msg += f"\n✋🏻/stop_{download.gid()[:8]}\n\n"
+            msg += f"\nSize: {download.size()}"
+        msg += f"\nElapsed: {get_readable_time(time() - download.message.date.timestamp())}\n"
+        msg += f"\n✋🏻/stop_{download.gid()[:8]}\n"--------------------------------\n
     if len(msg) == 0:
         return None, None
     dl_speed = 0
